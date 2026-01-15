@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OneTap Assist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: Arial; text-align:center; padding:40px;">
+  <h1>🎙️ OneTap Assist</h1>
+  <p>Voice-first digital help platform</p>
+
+  <button onclick="speak('Welcome to OneTap Assist')">English</button>
+  <button onclick="speak('ಒನ್ ಟ್ಯಾಪ್ ಅಸಿಸ್ಟ್ ಗೆ ಸ್ವಾಗತ')">Kannada</button>
+  <button onclick="speak('वन टैप असिस्ट में आपका स्वागत है')">Hindi</button>
+
+  <script>
+    function speak(text) {
+      const msg = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(msg);
+    }
+  </script>
+</body>
+</html>
