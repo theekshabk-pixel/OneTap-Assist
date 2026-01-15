@@ -1,23 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>OneTap Assist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #4CAF50;
+      color: white;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
 </head>
-<body style="font-family: Arial; text-align:center; padding:40px;">
-  <h1>🎙️ OneTap Assist</h1>
+
+<body>
+
+  <h1>🎤 OneTap Assist</h1>
   <p>Voice-first digital help platform</p>
 
-  <button onclick="speak('Welcome to OneTap Assist')">English</button>
-  <button onclick="speak('ಒನ್ ಟ್ಯಾಪ್ ಅಸಿಸ್ಟ್ ಗೆ ಸ್ವಾಗತ')">Kannada</button>
-  <button onclick="speak('वन टैप असिस्ट में आपका स्वागत है')">Hindi</button>
+  <button onclick="speakEnglish()">English</button>
+  <button onclick="speakKannada()">Kannada</button>
+  <button onclick="speakHindi()">Hindi</button>
 
   <script>
-    function speak(text) {
+    function speak(text, lang) {
       const msg = new SpeechSynthesisUtterance(text);
+      msg.lang = lang;
       window.speechSynthesis.speak(msg);
     }
+
+    function speakEnglish() {
+      speak(
+        "Welcome to One Tap Assist. This platform helps people using voice guidance.",
+        "en-US"
+      );
+    }
+
+    function speakKannada() {
+      speak(
+        "ಒನ್ ಟ್ಯಾಪ್ ಅಸಿಸ್ಟ್‌ಗೆ ಸ್ವಾಗತ. ಇದು ಧ್ವನಿ ಮಾರ್ಗದರ್ಶನದ ಮೂಲಕ ಜನರಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+        "kn-IN"
+      );
+    }
+
+    function speakHindi() {
+      speak(
+        "वन टैप असिस्ट में आपका स्वागत है। यह प्लेटफ़ॉर्म आवाज़ के ज़रिये मदद करता है।",
+        "hi-IN"
+      );
+    }
   </script>
+
 </body>
 </html>
